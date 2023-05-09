@@ -1,12 +1,12 @@
-package com.bvengo.simpleshulkerpreview.config;
+package dev.adamraichu.compass3d.config;
 
-import com.bvengo.simpleshulkerpreview.SimpleShulkerPreviewMod;
+import dev.adamraichu.compass3d.Compass3DMod;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import net.minecraft.util.Language;
 
-@Config(name = SimpleShulkerPreviewMod.MOD_ID)
+@Config(name = Compass3DMod.MOD_ID)
 public class ConfigOptions implements ConfigData {
     /**
      * Which slot of the shulker box should be displayed.
@@ -62,7 +62,7 @@ public class ConfigOptions implements ConfigData {
 
     /**
      * Recursive and stacking shulkers. Tested with:
-     * -  Carpet - EssentialAddons
+     * - Carpet - EssentialAddons
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
@@ -72,25 +72,33 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public boolean supportStackedShulkers = false;
 
-    /** x offset - default location overlaps with stacked shulkers count indicator */
+    /**
+     * x offset - default location overlaps with stacked shulkers count indicator
+     */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
     public int stackedTranslateX = 4;
 
-    /** y offset - default location overlaps with stacked shulkers count indicator */
+    /**
+     * y offset - default location overlaps with stacked shulkers count indicator
+     */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
     public int stackedTranslateY = 12;
 
-    /** z offset - default location overlaps with stacked shulkers count indicator */
+    /**
+     * z offset - default location overlaps with stacked shulkers count indicator
+     */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
     public int stackedTranslateZ = 9;
 
-    /** scale value - default location overlaps with stacked shulkers count indicator*/
+    /**
+     * scale value - default location overlaps with stacked shulkers count indicator
+     */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
@@ -106,7 +114,8 @@ public class ConfigOptions implements ConfigData {
 
         @Override
         public String toString() {
-            return Language.getInstance().get("config." + SimpleShulkerPreviewMod.MOD_ID + ".display_item." + this.name().toLowerCase());
+            return Language.getInstance()
+                    .get("config." + Compass3DMod.MOD_ID + ".display_item." + this.name().toLowerCase());
         }
     }
 }

@@ -1,8 +1,9 @@
-package com.bvengo.simpleshulkerpreview;
+package dev.adamraichu.compass3d;
 
-import com.bvengo.simpleshulkerpreview.config.ConfigOptions;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+
+import dev.adamraichu.compass3d.config.ConfigOptions;
 import me.shedaniel.autoconfig.AutoConfig;
 
 /**

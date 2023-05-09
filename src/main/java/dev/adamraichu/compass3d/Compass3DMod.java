@@ -1,20 +1,21 @@
-package com.bvengo.simpleshulkerpreview;
+package dev.adamraichu.compass3d;
 
-import com.bvengo.simpleshulkerpreview.config.ConfigOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import dev.adamraichu.compass3d.config.ConfigOptions;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Simple Shulker Preview Mod
  */
 @Environment(EnvType.CLIENT)
-public class SimpleShulkerPreviewMod implements ClientModInitializer {
-	public static final String MOD_ID = "simpleshulkerpreview";
+public class Compass3DMod implements ClientModInitializer {
+	public static final String MOD_ID = "compass3d";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override

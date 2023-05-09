@@ -1,9 +1,8 @@
 {
     "schemaVersion": 1,
-    "id": "simpleshulkerpreview",
+    "id": "compass3d",
     "version": "2.3.1",
-    "icon": "assets/simpleshulkerpreview/icon.png",
-
+    "icon": "assets/compass3d/icon.png",
     "name": "Simple Shulker Preview",
     "description": "Display the icon of the first item in a shulker. Very useful for bulk storage!",
     "authors": [
@@ -15,18 +14,17 @@
         "issues": "https://github.com/BVengo/simple-shulker-preview/issues"
     },
     "license": "LGPL-3.0",
-
     "environment": "client",
     "entrypoints": {
         "client": [
-            "com.bvengo.simpleshulkerpreview.SimpleShulkerPreviewMod"
+            "dev.adamraichu.compass3d.compass3dMod"
         ],
         "modmenu": [
-            "com.bvengo.simpleshulkerpreview.ModMenuIntegration"
+            "dev.adamraichu.compass3d.ModMenuIntegration"
         ]
     },
     "mixins": [
-        "simpleshulkerpreview.mixins.json"
+        "compass3d.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=0.14.9",
