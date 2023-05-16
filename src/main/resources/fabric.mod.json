@@ -17,7 +17,7 @@
     "environment": "client",
     "entrypoints": {
         "client": [
-            "dev.adamraichu.compass3d.compass3dMod"
+            "dev.adamraichu.compass3d.Compass3DMod"
         ],
         "modmenu": [
             "dev.adamraichu.compass3d.ModMenuIntegration"
