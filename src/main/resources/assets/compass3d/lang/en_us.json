@@ -20,8 +20,6 @@
   "text.autoconfig.compass3d.option.stackedTranslateZ.@Tooltip": "In/out offset of the icon on stacked shulkers to prevent overlap with stack count.",
   "text.autoconfig.compass3d.option.supportCustomHeads": "Support Custom Heads",
   "text.autoconfig.compass3d.option.supportCustomHeads.@Tooltip": "Treats custom heads separately from the minecraft:player_head",
-  "text.autoconfig.compass3d.option.supportStackedShulkers": "Support Stacked Shulkers",
-  "text.autoconfig.compass3d.option.supportStackedShulkers.@Tooltip": "Displays the item inside stacked shulker boxes",
   "text.autoconfig.compass3d.option.supportRecursiveShulkers": "Support Recursive Shulkers",
   "text.autoconfig.compass3d.option.supportRecursiveShulkers.@Tooltip": "Displays the item inside recursively stored shulker boxes",
   "text.autoconfig.compass3d.option.translateX": "X Offset",
@@ -35,5 +33,4 @@
   "config.compass3d.display_item.unique": "Unique",
   "config.compass3d.display_item.most": "Most",
   "config.compass3d.display_item.least": "Least"
-
 }

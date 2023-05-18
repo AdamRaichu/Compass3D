@@ -39,9 +39,7 @@ public abstract class ItemRendererMixin {
 		ConfigOptions config = AutoConfig.getConfigHolder(ConfigOptions.class).getConfig();
 		if (config.disableMod)
 			return;
-		if (!config.supportStackedShulkers && stack.getCount() != 1)
-			return;
-		if (!Utils.isObject(stack, RegexGroup.MINECRAFT_SHULKER))
+		if (!Utils.isObject(stack, RegexGroup.MINECRAFT_COMPASS))
 			return;
 
 		NbtCompound compound = stack.getNbt();

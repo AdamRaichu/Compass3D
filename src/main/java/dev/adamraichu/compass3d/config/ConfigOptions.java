@@ -68,10 +68,6 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public boolean supportRecursiveShulkers = false;
 
-    @ConfigEntry.Category("compatibility")
-    @ConfigEntry.Gui.Tooltip()
-    public boolean supportStackedShulkers = false;
-
     /**
      * x offset - default location overlaps with stacked shulkers count indicator
      */

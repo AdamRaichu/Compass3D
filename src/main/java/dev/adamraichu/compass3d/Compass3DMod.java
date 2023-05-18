@@ -20,10 +20,8 @@ public class Compass3DMod implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		LOGGER.info(LOGGER.getName() + " loading...");
-
 		AutoConfig.register(ConfigOptions.class, GsonConfigSerializer::new);
 
-		LOGGER.info(LOGGER.getName() + " loaded.");
+		LOGGER.info(LOGGER.getName() + " config initialized.");
 	}
 }
