@@ -36,7 +36,8 @@ public class Utils {
     int playerY = ((int) Math.round(player.getY()));
 
     if (playerY < compassY) {
-      displayItemStack = Items.ARROW.getDefaultStack();
+      // displayItemStack = Items.ARROW.getDefaultStack();
+      displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
     } else if (playerY > compassY) {
       displayItemStack = Items.SPECTRAL_ARROW.getDefaultStack();
     } else {

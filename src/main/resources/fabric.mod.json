@@ -27,6 +27,7 @@
     "compass3d.mixins.json"
   ],
   "depends": {
+    "fabric-api": "*",
     "fabricloader": ">=0.14.9",
     "minecraft": ">=1.19.4"
   },
