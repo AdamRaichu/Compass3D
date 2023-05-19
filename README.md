@@ -2,7 +2,7 @@
 
 I had the idea for this mod when working on the tracking compass for my [Server Side Commands](https://modrinth.com/mod/server-side-commands) mod.
 I realized that you had no way to determine the Y value of the coordinates of a compass.
-So, I did some research, and found the mod [Simple Shulker Preview](https://github.com/BVengo/simple-shulker-preview), which did something similar to what I wanted, and forked it. *That project was under the LGPL-3.0 license so click [here](./LGPL_CHANGES.md) for a list of the changes I made*.
+So, I did some research, and found the mod [Simple Shulker Preview](https://github.com/BVengo/simple-shulker-preview), which did something similar to what I wanted, and forked it. *That project was under the LGPL-3.0 license so click [here](https://github.com/AdamRaichu/Compass3D/blob/main/LGPL_CHANGES.md) for a list of the changes I made*.
 
 ## What do the different arrows mean?
 
