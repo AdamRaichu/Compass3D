@@ -8,21 +8,6 @@ import net.minecraft.util.Language;
 
 @Config(name = Compass3DMod.MOD_ID)
 public class ConfigOptions implements ConfigData {
-    /**
-     * Which slot of the shulker box should be displayed.
-     * FIRST - the first item available in the box
-     * LAST - the last item available in the box
-     * UNIQUE - only display if there is one item type in the box
-     * MOST - displays which item there is the most of in the box
-     */
-    @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-    public DisplayOption displayItem = DisplayOption.FIRST;
-
-    /** Treat enchanted items separately from un-enchanted items */
-    @ConfigEntry.Gui.Tooltip()
-    public boolean groupEnchantment = false;
-
     /** x offset */
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
@@ -46,27 +31,6 @@ public class ConfigOptions implements ConfigData {
     /** Disables the mod. */
     @ConfigEntry.Gui.Tooltip()
     public boolean disableMod = false;
-
-    /**
-     * Custom head datapacks and mods, all use the same method. Tested with:
-     * - MicroCutting
-     * - HeadIndex
-     * - JustMobHeads
-     * - MoreMobHeads
-     * - Player Head Drops
-     * - All Mob Heads
-     */
-    @ConfigEntry.Category("compatibility")
-    @ConfigEntry.Gui.Tooltip()
-    public boolean supportCustomHeads = false;
-
-    /**
-     * Recursive and stacking shulkers. Tested with:
-     * - Carpet - EssentialAddons
-     */
-    @ConfigEntry.Category("compatibility")
-    @ConfigEntry.Gui.Tooltip()
-    public boolean supportRecursiveShulkers = false;
 
     /**
      * x offset - default location overlaps with stacked shulkers count indicator
@@ -99,19 +63,4 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
     public int stackedScale = 10;
-
-    /** Shulker box slots that can be displayed */
-    public enum DisplayOption {
-        FIRST,
-        LAST,
-        UNIQUE,
-        MOST,
-        LEAST;
-
-        @Override
-        public String toString() {
-            return Language.getInstance()
-                    .get("config." + Compass3DMod.MOD_ID + ".display_item." + this.name().toLowerCase());
-        }
-    }
 }
