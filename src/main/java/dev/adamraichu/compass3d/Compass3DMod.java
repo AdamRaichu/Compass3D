@@ -11,7 +11,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 /**
- * Simple Shulker Preview Mod
+ * Compass3D Mod
  */
 @Environment(EnvType.CLIENT)
 public class Compass3DMod implements ClientModInitializer {

@@ -22,9 +22,9 @@ public class Utils {
   }
 
   /**
-   * Returns an item to display on a shulker box icon.
+   * Returns the arrow item to render.
    *
-   * @param compound An NBTCompound containing container data
+   * @param compound An NBTCompound containing compass data
    * @param config   The current config options for compass3d
    * @return An ItemStack for the display item, or null if there is none available
    */

@@ -33,7 +33,7 @@ public abstract class ItemRendererMixin {
 	boolean adjustSize = false;
 
 	@Inject(at = @At(value = "INVOKE", target = "net/minecraft/item/ItemStack.isItemBarVisible()Z"), method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
-	private void renderShulkerItemOverlay(MatrixStack matrices, TextRenderer renderer, ItemStack stack, int x, int y,
+	private void renderCompassItemOverlay(MatrixStack matrices, TextRenderer renderer, ItemStack stack, int x, int y,
 			@Nullable String countLabel, CallbackInfo info) {
 
 		ConfigOptions config = AutoConfig.getConfigHolder(ConfigOptions.class).getConfig();
@@ -57,7 +57,7 @@ public abstract class ItemRendererMixin {
 			smallTranslateY = config.translateY;
 			smallTranslateZ = config.translateZ * 10;
 		} else {
-			// Stackable shulkers are enabled, so change icon location to avoid item counter
+			// Stackable compasses are enabled, so change icon location to avoid item counter
 			smallScale = config.stackedScale;
 			smallTranslateX = config.stackedTranslateX;
 			smallTranslateY = config.stackedTranslateY;

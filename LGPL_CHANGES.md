@@ -12,3 +12,4 @@ The LGPL license requires that modified projects list the changes made to the or
 - New icon.
 - Update `fabric.mod.json` extensively.
 - Remove unused config options.
+- Replace occurences of shulker or similar words to compass.

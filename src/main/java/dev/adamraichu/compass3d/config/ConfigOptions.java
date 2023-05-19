@@ -33,7 +33,7 @@ public class ConfigOptions implements ConfigData {
     public boolean disableMod = false;
 
     /**
-     * x offset - default location overlaps with stacked shulkers count indicator
+     * x offset - default location overlaps with stacked compasses count indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
@@ -41,7 +41,7 @@ public class ConfigOptions implements ConfigData {
     public int stackedTranslateX = 4;
 
     /**
-     * y offset - default location overlaps with stacked shulkers count indicator
+     * y offset - default location overlaps with stacked compasses count indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
@@ -49,7 +49,7 @@ public class ConfigOptions implements ConfigData {
     public int stackedTranslateY = 12;
 
     /**
-     * z offset - default location overlaps with stacked shulkers count indicator
+     * z offset - default location overlaps with stacked compasses count indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
@@ -57,7 +57,7 @@ public class ConfigOptions implements ConfigData {
     public int stackedTranslateZ = 9;
 
     /**
-     * scale value - default location overlaps with stacked shulkers count indicator
+     * scale value - default location overlaps with stacked compasses count indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
