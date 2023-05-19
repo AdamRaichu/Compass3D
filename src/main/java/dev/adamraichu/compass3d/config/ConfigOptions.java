@@ -4,7 +4,6 @@ import dev.adamraichu.compass3d.Compass3DMod;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import net.minecraft.util.Language;
 
 @Config(name = Compass3DMod.MOD_ID)
 public class ConfigOptions implements ConfigData {
@@ -57,7 +56,8 @@ public class ConfigOptions implements ConfigData {
     public int stackedTranslateZ = 9;
 
     /**
-     * scale value - default location overlaps with stacked compasses count indicator
+     * scale value - default location overlaps with stacked compasses count
+     * indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
