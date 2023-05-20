@@ -4,17 +4,9 @@ I had the idea for this mod when working on the tracking compass for my [Server 
 I realized that you had no way to determine the Y value of the coordinates of a compass.
 So, I did some research, and found the mod [Simple Shulker Preview](https://github.com/BVengo/simple-shulker-preview), which did something similar to what I wanted, and forked it. *That project was under the LGPL-3.0 license so click [here](https://github.com/AdamRaichu/Compass3D/blob/main/LGPL_CHANGES.md) for a list of the changes I made*.
 
-## What do the different arrows mean?
-
-If your compass has a regular arrow on it, that means it is pointing up.
-If it has a spectral arrow, then it is pointing down.
-
-I am working on a way to use textures of items that don't actually exist to improve readability.
-Failing that, I will make a resource pack that changes the arrow and spectral arrow textures to better indicate direction.
-
 ## Configs
 
-> This section is slightly modified from the orginal project, but is much the same.
+> This section is slightly modified from the original project, but is much the same.
 
 | **Option**           | **Description**                                                       | **Default** |
 | -------------------- | --------------------------------------------------------------------- | ----------- |
@@ -28,3 +20,10 @@ This mod comes with the [Cloth Config API](https://www.curseforge.com/minecraft/
 implement configs (there should be no need to download it yourself). I would recommend installing [ModMenu](https://www.curseforge.com/minecraft/mc-mods/modmenu) alongside it if you actually want to use them though, because I didn't want to create yet another config mapping for such a simple mod.
 
 Please keep in mind that, although Compass3D may be available for certain versions, that doesn't always mean that ModMenu will be too. If you are desperate to edit the configs, they are stored in configs/compass3d.json.
+
+## Resource Pack
+
+If you don't like the textures I made for the arrows and want to make a resource pack to change them, here are the paths to the textures.
+
+- `resources/assets/compass3d/textures/item/up_arrow.png`
+- `resources/assets/compass3d/textures/item/down_arrow.png`
