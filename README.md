@@ -6,7 +6,7 @@ So, I did some research, and found the mod [Simple Shulker Preview](https://gith
 
 ## Configs
 
-> This section is slightly modified from the orginal project, but is much the same.
+> This section is slightly modified from the original project, but is much the same.
 
 | **Option**           | **Description**                                                       | **Default** |
 | -------------------- | --------------------------------------------------------------------- | ----------- |
