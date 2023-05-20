@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "compass3d",
-  "version": "1.0.0",
+  "version": "{$version}",
   "icon": "assets/compass3d/icon.png",
   "name": "Compass3D",
   "description": "Visual representation of Y-axis direction of lodestone compasses.",

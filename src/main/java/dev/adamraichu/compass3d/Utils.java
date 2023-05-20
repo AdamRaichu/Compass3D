@@ -7,7 +7,6 @@ import dev.adamraichu.compass3d.config.ConfigOptions;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 
 public class Utils {
@@ -22,7 +21,7 @@ public class Utils {
   }
 
   /**
-   * Returns the arrow item to render.
+   * Given a compass nbt, get the arrow to render.
    *
    * @param compound An NBTCompound containing compass data
    * @param config   The current config options for compass3d
@@ -36,10 +35,9 @@ public class Utils {
     int playerY = ((int) Math.round(player.getY()));
 
     if (playerY < compassY) {
-      // displayItemStack = Items.ARROW.getDefaultStack();
       displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
     } else if (playerY > compassY) {
-      displayItemStack = Items.SPECTRAL_ARROW.getDefaultStack();
+      displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
     } else {
       return null;
     }
