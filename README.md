@@ -4,14 +4,6 @@ I had the idea for this mod when working on the tracking compass for my [Server 
 I realized that you had no way to determine the Y value of the coordinates of a compass.
 So, I did some research, and found the mod [Simple Shulker Preview](https://github.com/BVengo/simple-shulker-preview), which did something similar to what I wanted, and forked it. *That project was under the LGPL-3.0 license so click [here](https://github.com/AdamRaichu/Compass3D/blob/main/LGPL_CHANGES.md) for a list of the changes I made*.
 
-## What do the different arrows mean?
-
-If your compass has a regular arrow on it, that means it is pointing up.
-If it has a spectral arrow, then it is pointing down.
-
-I am working on a way to use textures of items that don't actually exist to improve readability.
-Failing that, I will make a resource pack that changes the arrow and spectral arrow textures to better indicate direction.
-
 ## Configs
 
 > This section is slightly modified from the orginal project, but is much the same.
