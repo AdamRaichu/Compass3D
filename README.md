@@ -20,3 +20,10 @@ This mod comes with the [Cloth Config API](https://www.curseforge.com/minecraft/
 implement configs (there should be no need to download it yourself). I would recommend installing [ModMenu](https://www.curseforge.com/minecraft/mc-mods/modmenu) alongside it if you actually want to use them though, because I didn't want to create yet another config mapping for such a simple mod.
 
 Please keep in mind that, although Compass3D may be available for certain versions, that doesn't always mean that ModMenu will be too. If you are desperate to edit the configs, they are stored in configs/compass3d.json.
+
+## Resource Pack
+
+If you don't like the textures I made for the arrows and want to make a resource pack to change them, here are the paths to the textures.
+
+- `resources/assets/compass3d/textures/item/up_arrow.png`
+- `resources/assets/compass3d/textures/item/down_arrow.png`
