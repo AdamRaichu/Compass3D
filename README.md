@@ -27,3 +27,9 @@ If you don't like the textures I made for the arrows and want to make a resource
 
 - `resources/assets/compass3d/textures/item/up_arrow.png`
 - `resources/assets/compass3d/textures/item/down_arrow.png`
+
+## What is the item `compass3d:<dir>_arrow`?
+
+So to add the arrow overlays, I had to register a nonexistent item on the client side.
+However, I discovered in testing that it shows up in autocomplete when doing `/give`.
+This generates an error when used in multiplayer, but as the item doesn't exist you shouldn't worry about it.
