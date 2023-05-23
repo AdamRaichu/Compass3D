@@ -13,3 +13,6 @@ The LGPL license requires that modified projects list the changes made to the or
 - Update `fabric.mod.json` extensively.
 - Remove unused config options.
 - Replace occurences of shulker or similar words to compass.
+- Change all occurences of `MINECRAFT_COMPASS` to `MINECRAFT_LODESTONE_COMPASS`.
+- Add `MINECRAFT_COMPASS` to match compasses, not lodestone compasses.
+- Remove unused `RegexGroup`s.

@@ -39,7 +39,7 @@ public abstract class ItemRendererMixin {
 		ConfigOptions config = AutoConfig.getConfigHolder(ConfigOptions.class).getConfig();
 		if (config.disableMod)
 			return;
-		if (!Utils.isObject(stack, RegexGroup.MINECRAFT_COMPASS))
+		if (!Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS))
 			return;
 
 		NbtCompound compound = stack.getNbt();
@@ -57,7 +57,8 @@ public abstract class ItemRendererMixin {
 			smallTranslateY = config.translateY;
 			smallTranslateZ = config.translateZ * 10;
 		} else {
-			// Stackable compasses are enabled, so change icon location to avoid item counter
+			// Stackable compasses are enabled, so change icon location to avoid item
+			// counter
 			smallScale = config.stackedScale;
 			smallTranslateX = config.stackedTranslateX;
 			smallTranslateY = config.stackedTranslateY;
