@@ -16,3 +16,4 @@ The LGPL license requires that modified projects list the changes made to the or
 - Change all occurences of `MINECRAFT_COMPASS` to `MINECRAFT_LODESTONE_COMPASS`.
 - Add `MINECRAFT_COMPASS` to match compasses, not lodestone compasses.
 - Remove unused `RegexGroup`s.
+- Add changelog.

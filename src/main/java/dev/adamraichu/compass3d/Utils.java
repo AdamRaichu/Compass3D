@@ -27,18 +27,32 @@ public class Utils {
    * @param config   The current config options for compass3d
    * @return An ItemStack for the display item, or null if there is none available
    */
-  public static ItemStack getDisplayItem(NbtCompound compound, ConfigOptions config) {
-    ItemStack displayItemStack = null;
-    int compassY = compound.getCompound("LodestonePos").getInt("Y");
+  public static ItemStack getDisplayItem(NbtCompound compound, ItemStack stack, ConfigOptions config) {
+    ItemStack displayItemStack;
+    int compassY;
+
+    // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
     ClientPlayerEntity player = instance.player;
     int playerY = ((int) Math.round(player.getY()));
 
+    // Get compass Y level
+    if (isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS)) {
+      compassY = compound.getCompound("LodestonePos").getInt("Y");
+    } else if (isObject(stack, RegexGroup.MINECRAFT_COMPASS)) {
+      compassY = instance.world.getSpawnPos().getY();
+    } else {
+      // This case should never happen
+      return null;
+    }
+
+    // Compare player and compass Y levels
     if (playerY < compassY) {
       displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
     } else if (playerY > compassY) {
       displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
     } else {
+      // Player is at the right height
       return null;
     }
 

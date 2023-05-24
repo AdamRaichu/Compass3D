@@ -1,5 +1,9 @@
 # Changelog
 
+## [Fabric 1.19.4] v1.2.0
+
+Now works on vanilla, non-lodestone compasses.
+
 ## [Fabric 1.19.4] v1.1.0
 
 Mod now uses icons from nonexistent items instead of arrow textures.

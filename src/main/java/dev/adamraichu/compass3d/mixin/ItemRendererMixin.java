@@ -22,73 +22,77 @@ import net.minecraft.nbt.NbtCompound;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
-	@Shadow
-	public abstract void renderGuiItemIcon(MatrixStack matrices, ItemStack stack, int x, int y);
+  @Shadow
+  public abstract void renderGuiItemIcon(MatrixStack matrices, ItemStack stack, int x, int y);
 
-	private float smallScale = 10f;
-	private float smallTranslateX = 12f;
-	private float smallTranslateY = 12f;
-	private float smallTranslateZ = 10f;
+  private float smallScale = 10f;
+  private float smallTranslateX = 12f;
+  private float smallTranslateY = 12f;
+  private float smallTranslateZ = 10f;
 
-	boolean adjustSize = false;
+  boolean adjustSize = false;
 
-	@Inject(at = @At(value = "INVOKE", target = "net/minecraft/item/ItemStack.isItemBarVisible()Z"), method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
-	private void renderCompassItemOverlay(MatrixStack matrices, TextRenderer renderer, ItemStack stack, int x, int y,
-			@Nullable String countLabel, CallbackInfo info) {
+  @Inject(at = @At(value = "INVOKE", target = "net/minecraft/item/ItemStack.isItemBarVisible()Z"), method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
+  private void renderCompassItemOverlay(MatrixStack matrices, TextRenderer renderer, ItemStack stack, int x, int y,
+      @Nullable String countLabel, CallbackInfo info) {
 
-		ConfigOptions config = AutoConfig.getConfigHolder(ConfigOptions.class).getConfig();
-		if (config.disableMod)
-			return;
-		if (!Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS))
-			return;
+    ConfigOptions config = AutoConfig.getConfigHolder(ConfigOptions.class).getConfig();
+    if (config.disableMod)
+      return;
 
-		NbtCompound compound = stack.getNbt();
-		if (compound == null)
-			return; // Triggers on containers in the creative menu
+    boolean isLodestoneCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
+    boolean isCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_COMPASS);
 
-		ItemStack displayItem = Utils.getDisplayItem(compound, config);
-		if (displayItem == null)
-			return; // Triggers if configs don't allow displaying the items, or if it's empty
+    if (!(isLodestoneCompass || isCompass))
+      return;
 
-		if (stack.getCount() == 1) {
-			// Normal icon location
-			smallScale = config.scale;
-			smallTranslateX = config.translateX;
-			smallTranslateY = config.translateY;
-			smallTranslateZ = config.translateZ * 10;
-		} else {
-			// Stackable compasses are enabled, so change icon location to avoid item
-			// counter
-			smallScale = config.stackedScale;
-			smallTranslateX = config.stackedTranslateX;
-			smallTranslateY = config.stackedTranslateY;
-			smallTranslateZ = config.stackedTranslateZ * 10;
-		}
+    NbtCompound compound = stack.getNbt();
+    if (compound == null && isLodestoneCompass)
+      return; // Triggers on containers in the creative menu
 
-		adjustSize = true;
-		renderGuiItemIcon(matrices, displayItem, x, y);
-		adjustSize = false;
-	}
+    ItemStack displayItem = Utils.getDisplayItem(compound, stack, config);
+    if (displayItem == null)
+      return; // Triggers if configs don't allow displaying the items, or if it's empty
 
-	@ModifyArg(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V", ordinal = 0), index = 2)
-	private float injectedTranslateZ(float z) {
-		return adjustSize ? (z + smallTranslateZ) : z;
-	}
+    if (stack.getCount() == 1) {
+      // Normal icon location
+      smallScale = config.scale;
+      smallTranslateX = config.translateX;
+      smallTranslateY = config.translateY;
+      smallTranslateZ = config.translateZ * 10;
+    } else {
+      // Stackable compasses are enabled, so change icon location to avoid item
+      // counter
+      smallScale = config.stackedScale;
+      smallTranslateX = config.stackedTranslateX;
+      smallTranslateY = config.stackedTranslateY;
+      smallTranslateZ = config.stackedTranslateZ * 10;
+    }
 
-	@ModifyArgs(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V", ordinal = 1))
-	private void injectedTranslateXY(Args args) {
-		if (adjustSize) {
-			args.set(0, smallTranslateX);
-			args.set(1, smallTranslateY);
-		}
-	}
+    adjustSize = true;
+    renderGuiItemIcon(matrices, displayItem, x, y);
+    adjustSize = false;
+  }
 
-	@ModifyArgs(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.scale(FFF)V"))
-	private void injectedScale(Args args) {
-		if (adjustSize) {
-			args.set(0, smallScale);
-			args.set(1, smallScale);
-			args.set(2, smallScale);
-		}
-	}
+  @ModifyArg(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V", ordinal = 0), index = 2)
+  private float injectedTranslateZ(float z) {
+    return adjustSize ? (z + smallTranslateZ) : z;
+  }
+
+  @ModifyArgs(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V", ordinal = 1))
+  private void injectedTranslateXY(Args args) {
+    if (adjustSize) {
+      args.set(0, smallTranslateX);
+      args.set(1, smallTranslateY);
+    }
+  }
+
+  @ModifyArgs(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.scale(FFF)V"))
+  private void injectedScale(Args args) {
+    if (adjustSize) {
+      args.set(0, smallScale);
+      args.set(1, smallScale);
+      args.set(2, smallScale);
+    }
+  }
 }
