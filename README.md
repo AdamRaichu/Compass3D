@@ -24,9 +24,10 @@ Please keep in mind that, although Compass3D may be available for certain versio
 ## Resource Pack
 
 If you don't like the textures I made for the arrows and want to make a resource pack to change them, here are the paths to the textures.
+Please let me know if you do (via a GitHub issue) so I can link them here.
 
-- `resources/assets/compass3d/textures/item/up_arrow.png`
-- `resources/assets/compass3d/textures/item/down_arrow.png`
+- `assets/compass3d/textures/item/up_arrow.png`
+- `assets/compass3d/textures/item/down_arrow.png`
 
 ## What is the item `compass3d:<dir>_arrow`?
 
