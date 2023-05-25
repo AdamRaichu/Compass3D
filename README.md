@@ -23,8 +23,10 @@ Please keep in mind that, although Compass3D may be available for certain versio
 
 ## Resource Pack
 
-If you don't like the textures I made for the arrows and want to make a resource pack to change them, here are the paths to the textures.
-Please let me know if you do (via a GitHub issue) so I can link them here.
+I made a couple resource packs with alternate icons if you want. You can download them [here][alternate-icons]. *(Still waiting for project to be approved at time of writing (5/25), so just come back in a couple days if the link gives a "Project not found" error.)*
+
+If you don't like the textures and want to make a resource pack to change them, here are the paths to the textures.
+Please let me know if you do (via a GitHub issue) so I can link them there.
 
 - `assets/compass3d/textures/item/up_arrow.png`
 - `assets/compass3d/textures/item/down_arrow.png`
@@ -34,3 +36,5 @@ Please let me know if you do (via a GitHub issue) so I can link them here.
 So to add the arrow overlays, I had to register a nonexistent item on the client side.
 However, I discovered in testing that it shows up in autocomplete when doing `/give`.
 This generates an error when used in multiplayer, but as the item doesn't exist you shouldn't worry about it.
+
+[alternate-icons]: https://modrinth.com/resourcepack/compass3d-alternate-icons
