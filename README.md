@@ -23,7 +23,7 @@ Please keep in mind that, although Compass3D may be available for certain versio
 
 ## Resource Pack
 
-I made a couple resource packs with alternate icons if you want. You can download them [here][alternate-icons]. *(Still waiting for project to be approved at time of writing (5/25), so just come back in a couple days if the link gives a "Project not found" error.) Update (8/29): Moderaters witheld release because I didn't add any gallery images. Will resubmit with those later today.*
+I made a couple resource packs with alternate icons if you want. You can download them [here][alternate-icons]. *(Still waiting for project to be approved at time of writing (5/25), so just come back in a couple days if the link gives a "Project not found" error.) Update (8/29): Moderaters witheld release because I didn't add any gallery images. Will resubmit with those later today. The link does work though, it is just not findable in search yet.*
 
 If you don't like the textures and want to make a resource pack to change them, here are the paths to the textures.
 Please let me know if you do (via a GitHub issue) so I can link them there.
