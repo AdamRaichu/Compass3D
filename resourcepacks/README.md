@@ -4,7 +4,7 @@ This project (subfolder on GitHub) contains alternate icons for the mod [Compass
 Short descriptions of each resource pack are below.
 
 <details>
-  <summary>Compass3D: Wynncraft Style</summary>
+  <summary>Compass3D: Wynn Style</summary>
 
 This resource pack colors the arrows to match [Wynncraft][wynn]'s compass.
 
