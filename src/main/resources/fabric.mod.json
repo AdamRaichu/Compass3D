@@ -17,10 +17,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "dev.adamraichu.compass3d.Compass3DMod"
+      "io.github.adamraichu.compass3d.Compass3DMod"
     ],
     "modmenu": [
-      "dev.adamraichu.compass3d.ModMenuIntegration"
+      "io.github.adamraichu.compass3d.ModMenuIntegration"
     ]
   },
   "mixins": [

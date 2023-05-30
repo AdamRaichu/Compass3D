@@ -1,4 +1,4 @@
-package dev.adamraichu.compass3d.mixin;
+package io.github.adamraichu.compass3d.mixin;
 
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,9 +10,9 @@ import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
-import dev.adamraichu.compass3d.RegexGroup;
-import dev.adamraichu.compass3d.Utils;
-import dev.adamraichu.compass3d.config.ConfigOptions;
+import io.github.adamraichu.compass3d.RegexGroup;
+import io.github.adamraichu.compass3d.Utils;
+import io.github.adamraichu.compass3d.config.ConfigOptions;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.item.ItemRenderer;

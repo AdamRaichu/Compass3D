@@ -1,4 +1,4 @@
-package dev.adamraichu.compass3d;
+package io.github.adamraichu.compass3d;
 
 public enum RegexGroup {
   MINECRAFT_COMPASS("^item\\.minecraft\\.compass$"),

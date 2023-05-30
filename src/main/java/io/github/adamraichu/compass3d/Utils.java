@@ -1,9 +1,9 @@
-package dev.adamraichu.compass3d;
+package io.github.adamraichu.compass3d;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import dev.adamraichu.compass3d.config.ConfigOptions;
+import io.github.adamraichu.compass3d.config.ConfigOptions;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;

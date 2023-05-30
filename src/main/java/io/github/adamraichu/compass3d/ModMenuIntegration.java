@@ -1,9 +1,9 @@
-package dev.adamraichu.compass3d;
+package io.github.adamraichu.compass3d;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
-import dev.adamraichu.compass3d.config.ConfigOptions;
+import io.github.adamraichu.compass3d.config.ConfigOptions;
 import me.shedaniel.autoconfig.AutoConfig;
 
 /**

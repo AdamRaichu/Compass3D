@@ -1,6 +1,6 @@
-package dev.adamraichu.compass3d.config;
+package io.github.adamraichu.compass3d.config;
 
-import dev.adamraichu.compass3d.Compass3DMod;
+import io.github.adamraichu.compass3d.Compass3DMod;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
