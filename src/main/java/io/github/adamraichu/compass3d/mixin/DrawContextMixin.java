@@ -5,7 +5,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
@@ -15,15 +14,14 @@ import io.github.adamraichu.compass3d.Utils;
 import io.github.adamraichu.compass3d.config.ConfigOptions;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
-@Mixin(ItemRenderer.class)
-public abstract class ItemRendererMixin {
+@Mixin(DrawContext.class)
+public abstract class DrawContextMixin {
   @Shadow
-  public abstract void renderGuiItemIcon(MatrixStack matrices, ItemStack stack, int x, int y);
+  public abstract void drawItem(ItemStack item, int x, int y);
 
   private float smallScale = 10f;
   private float smallTranslateX = 12f;
@@ -32,8 +30,8 @@ public abstract class ItemRendererMixin {
 
   boolean adjustSize = false;
 
-  @Inject(at = @At(value = "INVOKE", target = "net/minecraft/item/ItemStack.isItemBarVisible()Z"), method = "renderGuiItemOverlay(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
-  private void renderCompassItemOverlay(MatrixStack matrices, TextRenderer renderer, ItemStack stack, int x, int y,
+  @Inject(at = @At(value = "INVOKE", target = "net/minecraft/item/ItemStack.isItemBarVisible()Z"), method = "drawItemInSlot(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
+  private void renderCompassItemOverlay(TextRenderer renderer, ItemStack stack, int x, int y,
       @Nullable String countLabel, CallbackInfo info) {
 
     ConfigOptions config = AutoConfig.getConfigHolder(ConfigOptions.class).getConfig();
@@ -48,11 +46,11 @@ public abstract class ItemRendererMixin {
 
     NbtCompound compound = stack.getNbt();
     if (compound == null && isLodestoneCompass)
-      return; // Triggers on containers in the creative menu
+      return;
 
     ItemStack displayItem = Utils.getDisplayItem(compound, stack, config);
     if (displayItem == null)
-      return; // Triggers if configs don't allow displaying the items, or if it's empty
+      return;
 
     if (stack.getCount() == 1) {
       // Normal icon location
@@ -70,24 +68,20 @@ public abstract class ItemRendererMixin {
     }
 
     adjustSize = true;
-    renderGuiItemIcon(matrices, displayItem, x, y);
+    drawItem(displayItem, x, y);
     adjustSize = false;
   }
 
-  @ModifyArg(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V", ordinal = 0), index = 2)
-  private float injectedTranslateZ(float z) {
-    return adjustSize ? (z + smallTranslateZ) : z;
-  }
-
-  @ModifyArgs(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V", ordinal = 1))
-  private void injectedTranslateXY(Args args) {
+  @ModifyArgs(method = "drawItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;IIII)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V"))
+  private void injectedTranslateXYZ(Args args) {
     if (adjustSize) {
-      args.set(0, smallTranslateX);
-      args.set(1, smallTranslateY);
+      args.set(0, ((float) args.get(0)) + smallTranslateX - 12);
+      args.set(1, ((float) args.get(1)) + smallTranslateY - 12);
+      args.set(2, ((float) args.get(2)) + smallTranslateZ - 12);
     }
   }
 
-  @ModifyArgs(method = "renderGuiItemModel(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.scale(FFF)V"))
+  @ModifyArgs(method = "drawItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;IIII)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.scale(FFF)V"))
   private void injectedScale(Args args) {
     if (adjustSize) {
       args.set(0, smallScale);
@@ -95,4 +89,5 @@ public abstract class ItemRendererMixin {
       args.set(2, smallScale);
     }
   }
+
 }

@@ -10,11 +10,13 @@ So, I did some research, and found the mod [Simple Shulker Preview](https://gith
 
 | **Option**           | **Description**                                                       | **Default** |
 | -------------------- | --------------------------------------------------------------------- | ----------- |
-| `X Offset`           | The horizontal offset of the icon, from left to right.                | 12.0        |
-| `Y Offset`           | The vertical offset of the icon, from top to bottom.                  | 12.0        |
-| `Z Offset`           | In/out offset. Use when other mods cover / are covered by this.       | 100.0       |
-| `Scale`              | Size of the icon.                                                     | 10.0        |
-| `Disable Mod`        | Disables the mod so that overlay icons are not displayed.             | *False*     |
+| `X Offset`           | The horizontal offset of the icon, from left to right.                | 18          |
+| `Y Offset`           | The vertical offset of the icon, from top to bottom.                  | 16          |
+| `Z Offset`           | In/out offset. Use when other mods cover / are covered by this.       | 10          |
+| `Scale`              | Size of the icon.                                                     | 10          |
+| `Disable Mod`        | Disables the mod so that overlay icons are not displayed.             | `false`     |
+
+There are also settings for each of the above (except Disable Mod) for when there are multiple compasses in a slot.
 
 This mod comes with the [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config) built in to
 implement configs (there should be no need to download it yourself). I would recommend installing [ModMenu](https://www.curseforge.com/minecraft/mc-mods/modmenu) alongside it if you actually want to use them though, because I didn't want to create yet another config mapping for such a simple mod.

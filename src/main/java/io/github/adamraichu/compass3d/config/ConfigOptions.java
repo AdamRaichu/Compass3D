@@ -9,22 +9,22 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 public class ConfigOptions implements ConfigData {
     /** x offset */
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
-    public int translateX = 12;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
+    public int translateX = 18;
 
     /** y offset */
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
-    public int translateY = 12;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
+    public int translateY = 16;
 
     /** z offset - for if it appears above or below other mod overlays */
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
     public int translateZ = 10;
 
     /** scale value */
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
     public int scale = 10;
 
     /** Disables the mod. */
@@ -36,23 +36,23 @@ public class ConfigOptions implements ConfigData {
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
-    public int stackedTranslateX = 4;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
+    public int stackedTranslateX = 8;
 
     /**
      * y offset - default location overlaps with stacked compasses count indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
-    public int stackedTranslateY = 12;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
+    public int stackedTranslateY = 16;
 
     /**
      * z offset - default location overlaps with stacked compasses count indicator
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
     public int stackedTranslateZ = 9;
 
     /**
@@ -61,6 +61,6 @@ public class ConfigOptions implements ConfigData {
      */
     @ConfigEntry.Category("compatibility")
     @ConfigEntry.Gui.Tooltip()
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 24)
     public int stackedScale = 10;
 }
