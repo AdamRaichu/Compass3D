@@ -1,5 +1,11 @@
 # Changelog
 
+## [Fabric 1.20] v1.2.1
+
+Update to 1.20.
+
+Change configuration defaults.
+
 ## [Fabric 1.19.4] v1.2.0
 
 Now works on vanilla, non-lodestone compasses.
