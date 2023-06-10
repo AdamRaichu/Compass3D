@@ -21,7 +21,7 @@ import net.minecraft.nbt.NbtCompound;
 @Mixin(DrawContext.class)
 public abstract class DrawContextMixin {
   @Shadow
-  public abstract void drawItem(ItemStack item, int x, int y);
+  public abstract void drawItemWithoutEntity(ItemStack stack, int x, int y);
 
   private float smallScale = 10f;
   private float smallTranslateX = 12f;
@@ -30,7 +30,7 @@ public abstract class DrawContextMixin {
 
   boolean adjustSize = false;
 
-  @Inject(at = @At(value = "INVOKE", target = "net/minecraft/item/ItemStack.isItemBarVisible()Z"), method = "drawItemInSlot(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
+  @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isItemBarVisible()Z"), method = "drawItemInSlot(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V")
   private void renderCompassItemOverlay(TextRenderer renderer, ItemStack stack, int x, int y,
       @Nullable String countLabel, CallbackInfo info) {
 
@@ -68,16 +68,16 @@ public abstract class DrawContextMixin {
     }
 
     adjustSize = true;
-    drawItem(displayItem, x, y);
+    drawItemWithoutEntity(displayItem, x, y);
     adjustSize = false;
   }
 
   @ModifyArgs(method = "drawItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;IIII)V", at = @At(value = "INVOKE", target = "net/minecraft/client/util/math/MatrixStack.translate(FFF)V"))
   private void injectedTranslateXYZ(Args args) {
     if (adjustSize) {
-      args.set(0, ((float) args.get(0)) + smallTranslateX - 12);
-      args.set(1, ((float) args.get(1)) + smallTranslateY - 12);
-      args.set(2, ((float) args.get(2)) + smallTranslateZ - 12);
+      args.set(0, (float) args.get(0) - 8.0F + smallTranslateX);
+      args.set(1, (float) args.get(1) - 8.0F + smallTranslateY);
+      args.set(2, 100.0F + smallTranslateZ);
     }
   }
 
