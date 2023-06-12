@@ -25,3 +25,5 @@ Mod now uses icons from nonexistent items instead of arrow textures.
 First working version! 🎉
 
 Comes bundled with cloth config API.
+
+[wiki]: https://github.com/AdamRaichu/Compass3D/wiki
