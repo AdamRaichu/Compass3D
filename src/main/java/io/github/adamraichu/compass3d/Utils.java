@@ -8,6 +8,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.Identifier;
 
 public class Utils {
   public static boolean isObject(ItemStack stack, RegexGroup group) {
@@ -31,15 +32,29 @@ public class Utils {
     ItemStack displayItemStack;
     int compassY;
 
+    boolean isLodestoneCompass = isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
+    boolean isCompass = isObject(stack, RegexGroup.MINECRAFT_COMPASS);
+
     // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
     ClientPlayerEntity player = instance.player;
     int playerY = ((int) Math.round(player.getY()));
 
+    Identifier dimensionId = player.getWorld().getDimensionKey().getValue();
+    String dimensionString = dimensionId.getNamespace() + ":" + dimensionId.getPath();
+
     // Get compass Y level
-    if (isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS)) {
+    if (isLodestoneCompass) {
+      if (!compound.getString("LodestoneDimension").equals(dimensionString)) {
+        // LodestoneDimension does not equal player dimension.
+        return null;
+      }
       compassY = compound.getCompound("LodestonePos").getInt("Y");
-    } else if (isObject(stack, RegexGroup.MINECRAFT_COMPASS)) {
+    } else if (isCompass) {
+      if (!dimensionString.equals("minecraft:overworld")) {
+        // Is a regular compass, but player is not in the overworld.
+        return null;
+      }
       compassY = instance.world.getSpawnPos().getY();
     } else {
       // This case should never happen

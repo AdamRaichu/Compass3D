@@ -1,5 +1,11 @@
 # Changelog
 
+See [the wiki][wiki] for information about which features are supported in which Minecraft versions.
+
+## v1.3.0
+
+Arrows will no longer appear while in the wrong dimension.
+
 ## [Fabric 1.20] v1.2.1
 
 Update to 1.20.
