@@ -1,5 +1,6 @@
 package io.github.adamraichu.compass3d;
 
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,6 +10,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.GlobalPos;
 
 public class Utils {
   public static boolean isObject(ItemStack stack, RegexGroup group) {
@@ -32,8 +34,9 @@ public class Utils {
     ItemStack displayItemStack;
     int compassY;
 
-    boolean isLodestoneCompass = isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
     boolean isCompass = isObject(stack, RegexGroup.MINECRAFT_COMPASS);
+    boolean isLodestoneCompass = isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
+    boolean isRecoveryCompass = isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
 
     // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
@@ -56,16 +59,42 @@ public class Utils {
         return null;
       }
       compassY = instance.world.getSpawnPos().getY();
+    } else if (isRecoveryCompass) {
+      Optional<GlobalPos> _lastDeathPos = player.getLastDeathPos();
+      if (!_lastDeathPos.isPresent()) {
+        // Player has not died yet
+        return null;
+      }
+
+      GlobalPos lastDeathPos = _lastDeathPos.get();
+      Identifier lastDeathDimensionId = lastDeathPos.getDimension().getValue();
+
+      if (!lastDeathDimensionId.equals(dimensionId)) {
+        // Player has died in a different dimension
+        return null;
+      }
+
+      compassY = lastDeathPos.getPos().getY();
     } else {
       // This case should never happen
       return null;
     }
 
+    boolean useRecoveryArrows = config.useBlueRecoveryArrows && isRecoveryCompass;
+
     // Compare player and compass Y levels
     if (playerY < compassY) {
-      displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
+      if (useRecoveryArrows) {
+        displayItemStack = Compass3DMod.RECOVERY_UP_ARROW.getDefaultStack();
+      } else {
+        displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
+      }
     } else if (playerY > compassY) {
-      displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
+      if (useRecoveryArrows) {
+        displayItemStack = Compass3DMod.RECOVERY_DOWN_ARROW.getDefaultStack();
+      } else {
+        displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
+      }
     } else {
       // Player is at the right height
       return null;

@@ -5,7 +5,7 @@ The LGPL license requires that modified projects list the changes made to the or
 While this is required, I would like to note that this project is not at all intended to fulfill the same purpose as the project it was forked from. It simply uses the same methods in the Minecraft source code to do so.
 
 - Add the devcontainer file.
-- Change the package name to `io.github.adamraichu.Compas3DMod` (all occurences).
+- Change the package name to `io.github.adamraichu.Compass3DMod` (all occurrences).
 - Change license text format to markdown.
 - Modify README extensively
 - Add `MINECRAFT_COMPASS` `RegexGroup`.
@@ -14,8 +14,10 @@ While this is required, I would like to note that this project is not at all int
 - New icon.
 - Update `fabric.mod.json` extensively.
 - Remove unused config options.
-- Replace occurences of shulker or similar words to compass.
-- Change all occurences of `MINECRAFT_COMPASS` to `MINECRAFT_LODESTONE_COMPASS`.
+- Replace occurrences of shulker or similar words to compass.
+- Change all occurrences of `MINECRAFT_COMPASS` to `MINECRAFT_LODESTONE_COMPASS`.
 - Add `MINECRAFT_COMPASS` to match compasses, not lodestone compasses.
 - Remove unused `RegexGroup`s.
 - Add changelog.
+- Add `MINECRAFT_RECOVERY_COMPASS` to `RegexGroup`.
+- Add config options.

@@ -4,6 +4,8 @@
   "text.autoconfig.compass3d.category.compatibility": "Compatibility Settings",
   "text.autoconfig.compass3d.option.disableMod": "Disable Mod",
   "text.autoconfig.compass3d.option.disableMod.@Tooltip": "Disables the mod so that overlay icons are not displayed.",
+  "text.autoconfig.compass3d.option.useBlueRecoveryArrows": "Use Recovery Compass Arrows",
+  "text.autoconfig.compass3d.option.useBlueRecoveryArrows.@Tooltip": "Whether to use blue arrow textures for recovery compasses.",
   "text.autoconfig.compass3d.option.scale": "Scale",
   "text.autoconfig.compass3d.option.scale.@Tooltip": "Scale of the icon.",
   "text.autoconfig.compass3d.option.stackedScale": "Scale - Stacked Compasses",

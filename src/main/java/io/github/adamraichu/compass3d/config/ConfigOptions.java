@@ -31,6 +31,9 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public boolean disableMod = false;
 
+    @ConfigEntry.Gui.Tooltip()
+    public boolean useBlueRecoveryArrows = true;
+
     /**
      * x offset - default location overlaps with stacked compasses count indicator
      */

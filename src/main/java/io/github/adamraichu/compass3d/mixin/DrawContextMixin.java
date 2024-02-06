@@ -38,10 +38,11 @@ public abstract class DrawContextMixin {
     if (config.disableMod)
       return;
 
-    boolean isLodestoneCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
     boolean isCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_COMPASS);
+    boolean isLodestoneCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
+    boolean isRecoveryCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
 
-    if (!(isLodestoneCompass || isCompass))
+    if (!(isLodestoneCompass || isCompass || isRecoveryCompass))
       return;
 
     NbtCompound compound = stack.getNbt();

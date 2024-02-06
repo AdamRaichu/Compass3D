@@ -25,6 +25,8 @@ public class Compass3DMod implements ClientModInitializer {
 
 	public static Item UP_ARROW = null;
 	public static Item DOWN_ARROW = null;
+	public static Item RECOVERY_UP_ARROW = null;
+	public static Item RECOVERY_DOWN_ARROW = null;
 
 	@Override
 	public void onInitializeClient() {
@@ -34,9 +36,13 @@ public class Compass3DMod implements ClientModInitializer {
 		FabricItemSettings settings = new FabricItemSettings();
 		UP_ARROW = new Item(settings);
 		DOWN_ARROW = new Item(settings);
+		RECOVERY_UP_ARROW = new Item(settings);
+		RECOVERY_DOWN_ARROW = new Item(settings);
 
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "up_arrow"), UP_ARROW);
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "down_arrow"), DOWN_ARROW);
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "recovery_up_arrow"), RECOVERY_UP_ARROW);
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "recovery_down_arrow"), RECOVERY_DOWN_ARROW);
 		LOGGER.info("Custom items registered (for textures).");
 	}
 }
