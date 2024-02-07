@@ -19,6 +19,18 @@ repositories {
 
 	maven {	url "https://maven.terraformersmc.com/" }  // Mod Menu
 	maven { url "https://maven.shedaniel.me/" } // Cloth Config
+
+	exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -40,6 +52,8 @@ dependencies {
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}", {
 		exclude module: 'fabric-api'
 	}
+
+	modApi "maven.modrinth:netherite-compass:yTjt8R7R"
 }
 
 processResources {

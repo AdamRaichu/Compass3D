@@ -37,6 +37,7 @@ public class Utils {
     boolean isCompass = isObject(stack, RegexGroup.MINECRAFT_COMPASS);
     boolean isLodestoneCompass = isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
     boolean isRecoveryCompass = isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
+    boolean isNetheriteCompass = isObject(stack, RegexGroup.MODDED_NETHERITE_COMPASS);
 
     // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
@@ -75,8 +76,22 @@ public class Utils {
       }
 
       compassY = lastDeathPos.getPos().getY();
+    } else if (isNetheriteCompass) {
+      // (Used to shorten names)
+
+      GlobalPos trackedPos = dorkix.mods.netherite_compass.item.NetheriteCompass.getTrackedPos(compound);
+
+      if (java.util.Objects.isNull(trackedPos)) {
+        return null;
+      }
+      if (!trackedPos.getDimension().getValue().equals(dimensionId)) {
+        return null;
+      }
+
+      compassY = trackedPos.getPos().getY();
     } else {
-      // This case should never happen
+      // This case should never happen as-is, but that may change in the future.
+      Compass3DMod.LOGGER.warn("Received impossible case in getDisplayItem()");
       return null;
     }
 
@@ -86,12 +101,16 @@ public class Utils {
     if (playerY < compassY) {
       if (useRecoveryArrows) {
         displayItemStack = Compass3DMod.RECOVERY_UP_ARROW.getDefaultStack();
+      } else if (isNetheriteCompass) {
+        displayItemStack = Compass3DMod.MODDED_NETHERITE_UP_ARROW.getDefaultStack();
       } else {
         displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
       }
     } else if (playerY > compassY) {
       if (useRecoveryArrows) {
         displayItemStack = Compass3DMod.RECOVERY_DOWN_ARROW.getDefaultStack();
+      } else if (isNetheriteCompass) {
+        displayItemStack = Compass3DMod.MODDED_NETHERITE_DOWN_ARROW.getDefaultStack();
       } else {
         displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
       }
