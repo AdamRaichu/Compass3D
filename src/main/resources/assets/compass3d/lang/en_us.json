@@ -1,11 +1,10 @@
 {
   "text.autoconfig.compass3d.title": "Compass3D",
   "text.autoconfig.compass3d.category.default": "General Settings",
-  "text.autoconfig.compass3d.category.compatibility": "Compatibility Settings",
+  "text.autoconfig.compass3d.category.icon_position": "Icon Positioning",
+  "text.autoconfig.compass3d.category.icon_style": "Icon Style",
   "text.autoconfig.compass3d.option.disableMod": "Disable Mod",
   "text.autoconfig.compass3d.option.disableMod.@Tooltip": "Disables the mod so that overlay icons are not displayed.",
-  "text.autoconfig.compass3d.option.useBlueRecoveryArrows": "Use Recovery Compass Arrows",
-  "text.autoconfig.compass3d.option.useBlueRecoveryArrows.@Tooltip": "Whether to use blue arrow textures for recovery compasses.",
   "text.autoconfig.compass3d.option.scale": "Scale",
   "text.autoconfig.compass3d.option.scale.@Tooltip": "Scale of the icon.",
   "text.autoconfig.compass3d.option.stackedScale": "Scale - Stacked Compasses",
@@ -21,5 +20,13 @@
   "text.autoconfig.compass3d.option.translateY": "Y Offset",
   "text.autoconfig.compass3d.option.translateY.@Tooltip": "The vertical offset of the icon, from top to bottom.",
   "text.autoconfig.compass3d.option.translateZ": "Z Offset",
-  "text.autoconfig.compass3d.option.translateZ.@Tooltip": "In/out offset. Use when other mods cover / are covered by this."
+  "text.autoconfig.compass3d.option.translateZ.@Tooltip": "In/out offset. Use when other mods cover / are covered by this.",
+  "text.autoconfig.compass3d.option.vanillaCompass.@PrefixText": "The following settings can be used to change or disable the icons shown on specific compasses. DEFAULT uses the default arrows, or the arrows set by resource packs. MATCH_COMPASS_STYLE will use the icon designed to match the colors of the compass. DISABLED disables the mod for that kind of compass.",
+  "text.autoconfig.compass3d.option.vanillaCompass.@Tooltip": "For this compass, there is no difference between DEFAULT and MATCH_COMPASS_STYLE.",
+  "text.autoconfig.compass3d.option.vanillaCompass": "Vanilla Compass (Spawn Point)",
+  "text.autoconfig.compass3d.option.lodestoneCompass.@Tooltip": "For this compass, there is no difference between DEFAULT and MATCH_COMPASS_STYLE.",
+  "text.autoconfig.compass3d.option.lodestoneCompass": "Lodestone Compass",
+  "text.autoconfig.compass3d.option.recoveryCompass": "Recovery Compass",
+  "text.autoconfig.compass3d.option.netheriteCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
+  "text.autoconfig.compass3d.option.netheriteCompass": "Netherite Compass"
 }
