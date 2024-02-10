@@ -4,7 +4,7 @@
   "version": "$version",
   "icon": "assets/compass3d/icon.png",
   "name": "Compass3D",
-  "description": "Visual representation of Y-axis direction of lodestone compasses.",
+  "description": "Visual representation of Y-axis direction of compasses.",
   "authors": [
     "AdamRaichu"
   ],

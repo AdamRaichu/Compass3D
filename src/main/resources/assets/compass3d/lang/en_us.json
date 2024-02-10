@@ -28,5 +28,7 @@
   "text.autoconfig.compass3d.option.lodestoneCompass": "Lodestone Compass",
   "text.autoconfig.compass3d.option.recoveryCompass": "Recovery Compass",
   "text.autoconfig.compass3d.option.netheriteCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
-  "text.autoconfig.compass3d.option.netheriteCompass": "Netherite Compass"
+  "text.autoconfig.compass3d.option.netheriteCompass": "Netherite Compass",
+  "text.autoconfig.compass3d.option.oreCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
+  "text.autoconfig.compass3d.option.oreCompass": "Ore Compass"
 }

@@ -42,8 +42,9 @@ public abstract class DrawContextMixin {
     boolean isLodestoneCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
     boolean isRecoveryCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
     boolean isNetheriteCompass = Utils.isObject(stack, RegexGroup.MODDED_NETHERITE_COMPASS);
+    boolean isOreCompass = Utils.isObject(stack, RegexGroup.MODDED_ORE_COMPASS);
 
-    if (!(isLodestoneCompass || isCompass || isRecoveryCompass || isNetheriteCompass))
+    if (!(isLodestoneCompass || isCompass || isRecoveryCompass || isNetheriteCompass || isOreCompass))
       return;
 
     NbtCompound compound = stack.getNbt();
@@ -61,8 +62,7 @@ public abstract class DrawContextMixin {
       smallTranslateY = config.translateY;
       smallTranslateZ = config.translateZ * 10;
     } else {
-      // Stackable compasses are enabled, so change icon location to avoid item
-      // counter
+      // Stack has multiple compasses, so change icon location to avoid item counter.
       smallScale = config.stackedScale;
       smallTranslateX = config.stackedTranslateX;
       smallTranslateY = config.stackedTranslateY;

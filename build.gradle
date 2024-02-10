@@ -53,7 +53,9 @@ dependencies {
 		exclude module: 'fabric-api'
 	}
 
+	// Supported Mods
 	modApi "maven.modrinth:netherite-compass:yTjt8R7R"
+	modCompileOnly "maven.modrinth:miners-compass:SRH6VmrN"
 }
 
 processResources {

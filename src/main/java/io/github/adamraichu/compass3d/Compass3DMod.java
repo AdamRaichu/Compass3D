@@ -29,6 +29,8 @@ public class Compass3DMod implements ClientModInitializer {
 	public static Item RECOVERY_DOWN_ARROW = null;
 	public static Item MODDED_NETHERITE_UP_ARROW = null;
 	public static Item MODDED_NETHERITE_DOWN_ARROW = null;
+	public static Item MODDED_ORE_UP_ARROW = null;
+	public static Item MODDED_ORE_DOWN_ARROW = null;
 
 	@Override
 	public void onInitializeClient() {
@@ -42,14 +44,22 @@ public class Compass3DMod implements ClientModInitializer {
 		RECOVERY_DOWN_ARROW = new Item(settings);
 		MODDED_NETHERITE_UP_ARROW = new Item(settings);
 		MODDED_NETHERITE_DOWN_ARROW = new Item(settings);
+		MODDED_ORE_UP_ARROW = new Item(settings);
+		MODDED_ORE_DOWN_ARROW = new Item(settings);
 
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "up_arrow"), UP_ARROW);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "down_arrow"), DOWN_ARROW);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "recovery_up_arrow"), RECOVERY_UP_ARROW);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "recovery_down_arrow"), RECOVERY_DOWN_ARROW);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "modded/netherite_up_arrow"), MODDED_NETHERITE_UP_ARROW);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "modded/netherite_down_arrow"),
-				MODDED_NETHERITE_DOWN_ARROW);
+		registerItem("up_arrow", UP_ARROW);
+		registerItem("down_arrow", DOWN_ARROW);
+		registerItem("recovery_up_arrow", RECOVERY_UP_ARROW);
+		registerItem("recovery_down_arrow", RECOVERY_DOWN_ARROW);
+		registerItem("modded/netherite_up_arrow", MODDED_NETHERITE_UP_ARROW);
+		registerItem("modded/netherite_down_arrow", MODDED_NETHERITE_DOWN_ARROW);
+		registerItem("modded/ore_up_arrow", MODDED_ORE_UP_ARROW);
+		registerItem("modded/ore_down_arrow", MODDED_ORE_DOWN_ARROW);
+
 		LOGGER.info("Custom items registered (for textures).");
+	}
+
+	private void registerItem(String name, Item item) {
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), item);
 	}
 }
