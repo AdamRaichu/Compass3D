@@ -43,6 +43,7 @@ public class Utils {
     boolean isRecoveryCompass = isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
     boolean isNetheriteCompass = isObject(stack, RegexGroup.MODDED_NETHERITE_COMPASS);
     boolean isOreCompass = isObject(stack, RegexGroup.MODDED_ORE_COMPASS);
+    boolean isDarkCompass = isObject(stack, RegexGroup.MODDED_DARK_COMPASS);
 
     // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
@@ -114,6 +115,21 @@ public class Utils {
       } else {
         return null;
       }
+    } else if (isDarkCompass) {
+      if (config.darkCompass.equals(ArrowSettings.DISABLED)) {
+        return null;
+      }
+
+      GlobalPos trackedPos = net.theblindbandit6.darkcompass.item.custom.DarkCompassItem
+          .createDarkPos(player.clientWorld, compound);
+
+      if (globalPosDimEquals(trackedPos, dimensionId)) {
+        // IMPORTANT: This value is adjusted because the position in the compass is of
+        // the block, not the air.
+        compassY = trackedPos.getPos().getY() + 1;
+      } else {
+        return null;
+      }
     } else {
       // This case should never happen as-is, but that may change in the future.
       Compass3DMod.LOGGER.warn("Received impossible case in getDisplayItem()");
@@ -124,6 +140,7 @@ public class Utils {
     boolean useNetheriteArrows = config.netheriteCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE)
         && isNetheriteCompass;
     boolean useOreArrows = config.oreCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isOreCompass;
+    boolean useDarkArrows = config.darkCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isDarkCompass;
 
     // Compare player and compass Y levels
     if (playerY < compassY) {
@@ -133,6 +150,8 @@ public class Utils {
         displayItemStack = Compass3DMod.MODDED_NETHERITE_UP_ARROW.getDefaultStack();
       } else if (useOreArrows) {
         displayItemStack = Compass3DMod.MODDED_ORE_UP_ARROW.getDefaultStack();
+      } else if (useDarkArrows) {
+        displayItemStack = Compass3DMod.MODDED_DARK_UP_ARROW.getDefaultStack();
       } else {
         displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
       }
@@ -143,6 +162,8 @@ public class Utils {
         displayItemStack = Compass3DMod.MODDED_NETHERITE_DOWN_ARROW.getDefaultStack();
       } else if (useOreArrows) {
         displayItemStack = Compass3DMod.MODDED_ORE_DOWN_ARROW.getDefaultStack();
+      } else if (useDarkArrows) {
+        displayItemStack = Compass3DMod.MODDED_DARK_DOWN_ARROW.getDefaultStack();
       } else {
         displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
       }
@@ -155,11 +176,11 @@ public class Utils {
     return displayItemStack;
   }
 
-  public static boolean globalPosDimEquals(@Nullable GlobalPos trackedPos, Identifier dimensionId) {
-    if (Objects.isNull(trackedPos)) {
+  public static boolean globalPosDimEquals(@Nullable GlobalPos pos, Identifier dimensionId) {
+    if (Objects.isNull(pos)) {
       return false;
     }
-    if (!trackedPos.getDimension().getValue().equals(dimensionId)) {
+    if (!pos.getDimension().getValue().equals(dimensionId)) {
       return false;
     }
     return true;

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "compass3d:item/modded/dark_up_arrow"
+  }
+}
