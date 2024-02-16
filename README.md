@@ -4,6 +4,8 @@ I had the idea for this mod when working on the tracking compass for my [Server 
 I realized that you had no way to determine the Y value of the coordinates of a compass.
 So, I did some research, and found the mod [Simple Shulker Preview](https://github.com/BVengo/simple-shulker-preview), which did something similar to what I wanted, and forked it. *That project was under the LGPL-3.0 license so click [here](https://github.com/AdamRaichu/Compass3D/blob/main/LGPL_CHANGES.md) for a list of the changes I made*.
 
+<img src="https://raw.githubusercontent.com/Jab125/Jab125/main/imgs/requiredClothConfig.png" width="300" height="100">
+
 ## Configs
 
 > This section is slightly modified from the original project, but is much the same, with the exception of Cloth Config being required.
