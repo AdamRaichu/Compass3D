@@ -8,23 +8,10 @@ So, I did some research, and found the mod [Simple Shulker Preview](https://gith
 
 ## Configs
 
-> This section is slightly modified from the original project, but is much the same, with the exception of Cloth Config being required.
-
-| **Option**           | **Description**                                                       | **Default** |
-| -------------------- | --------------------------------------------------------------------- | ----------- |
-| `X Offset`           | The horizontal offset of the icon, from left to right.                | 18          |
-| `Y Offset`           | The vertical offset of the icon, from top to bottom.                  | 16          |
-| `Z Offset`           | In/out offset. Use when other mods cover / are covered by this.       | 10          |
-| `Scale`              | Size of the icon.                                                     | 10          |
-| `Disable Mod`        | Disables the mod so that overlay icons are not displayed.             | `false`     |
-| `Use Recovery Compass Arrows` | When enabled, the icons used for recovery compasses will be blue instead of the default, red. | `true` |
-
-There are also settings for each of the above (except Disable Mod) for when there are multiple compasses in a slot.
+This mod gives you the ability to configure the size and placement of arrows, as well as the arrow type for each supported compass. The config menu is fairly self-explanatory, so I will not elaborate on that further here.
 
 ~~This mod comes with the [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config) built in to
 implement configs (there should be no need to download it yourself).~~ **You need to install [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config) in order for this project to work.** I would recommend installing [ModMenu](https://www.curseforge.com/minecraft/mc-mods/modmenu) alongside it if you actually want to use them though, because I didn't want to create yet another config mapping for such a simple mod.
-
-Please keep in mind that, although Compass3D may be available for certain versions, that doesn't always mean that ModMenu will be too. If you are desperate to edit the configs, they are stored in configs/compass3d.json.
 
 ## Resource Pack
 
