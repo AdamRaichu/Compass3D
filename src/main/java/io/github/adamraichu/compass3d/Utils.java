@@ -44,6 +44,7 @@ public class Utils {
     boolean isNetheriteCompass = isObject(stack, RegexGroup.MODDED_NETHERITE_COMPASS);
     boolean isOreCompass = isObject(stack, RegexGroup.MODDED_ORE_COMPASS);
     boolean isDarkCompass = isObject(stack, RegexGroup.MODDED_DARK_COMPASS);
+    boolean isPortalCompass = Utils.isObject(stack, RegexGroup.MODDED_PORTAL_COMPASS);
 
     // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
@@ -130,6 +131,19 @@ public class Utils {
       } else {
         return null;
       }
+    } else if (isPortalCompass) {
+      if (config.portalCompass.equals(ArrowSettings.DISABLED)) {
+        return null;
+      }
+
+      GlobalPos trackedPos = dev.maxoduke.mods.portallinkingcompass.item.PortalLinkingCompassItem
+          .pointToTarget(instance.world, stack, null);
+
+      if (globalPosDimEquals(trackedPos, dimensionId)) {
+        compassY = trackedPos.getPos().getY();
+      } else {
+        return null;
+      }
     } else {
       // This case should never happen as-is, but that may change in the future.
       Compass3DMod.LOGGER.warn("Received impossible case in getDisplayItem()");
@@ -141,6 +155,7 @@ public class Utils {
         && isNetheriteCompass;
     boolean useOreArrows = config.oreCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isOreCompass;
     boolean useDarkArrows = config.darkCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isDarkCompass;
+    boolean usePortalArrows = config.portalCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isPortalCompass;
 
     // Compare player and compass Y levels
     if (playerY < compassY) {
@@ -152,6 +167,8 @@ public class Utils {
         displayItemStack = Compass3DMod.MODDED_ORE_UP_ARROW.getDefaultStack();
       } else if (useDarkArrows) {
         displayItemStack = Compass3DMod.MODDED_DARK_UP_ARROW.getDefaultStack();
+      } else if (usePortalArrows) {
+        displayItemStack = Compass3DMod.MODDED_PORTAL_UP_ARROW.getDefaultStack();
       } else {
         displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
       }
@@ -164,6 +181,8 @@ public class Utils {
         displayItemStack = Compass3DMod.MODDED_ORE_DOWN_ARROW.getDefaultStack();
       } else if (useDarkArrows) {
         displayItemStack = Compass3DMod.MODDED_DARK_DOWN_ARROW.getDefaultStack();
+      } else if (usePortalArrows) {
+        displayItemStack = Compass3DMod.MODDED_PORTAL_DOWN_ARROW.getDefaultStack();
       } else {
         displayItemStack = Compass3DMod.DOWN_ARROW.getDefaultStack();
       }

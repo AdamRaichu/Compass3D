@@ -33,6 +33,8 @@ public class Compass3DMod implements ClientModInitializer {
 	public static Item MODDED_ORE_DOWN_ARROW = null;
 	public static Item MODDED_DARK_UP_ARROW = null;
 	public static Item MODDED_DARK_DOWN_ARROW = null;
+	public static Item MODDED_PORTAL_UP_ARROW = null;
+	public static Item MODDED_PORTAL_DOWN_ARROW = null;
 
 	@Override
 	public void onInitializeClient() {
@@ -50,6 +52,8 @@ public class Compass3DMod implements ClientModInitializer {
 		MODDED_ORE_DOWN_ARROW = new Item(settings);
 		MODDED_DARK_UP_ARROW = new Item(settings);
 		MODDED_DARK_DOWN_ARROW = new Item(settings);
+		MODDED_PORTAL_UP_ARROW = new Item(settings);
+		MODDED_PORTAL_DOWN_ARROW = new Item(settings);
 
 		registerItem("up_arrow", UP_ARROW);
 		registerItem("down_arrow", DOWN_ARROW);
@@ -61,6 +65,8 @@ public class Compass3DMod implements ClientModInitializer {
 		registerItem("modded/ore_down_arrow", MODDED_ORE_DOWN_ARROW);
 		registerItem("modded/dark_up_arrow", MODDED_DARK_UP_ARROW);
 		registerItem("modded/dark_down_arrow", MODDED_DARK_DOWN_ARROW);
+		registerItem("modded/portal_up_arrow", MODDED_PORTAL_UP_ARROW);
+		registerItem("modded/portal_down_arrow", MODDED_PORTAL_DOWN_ARROW);
 
 		LOGGER.info("Custom items registered (for textures).");
 	}

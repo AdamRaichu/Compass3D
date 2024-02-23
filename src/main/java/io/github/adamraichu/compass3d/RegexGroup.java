@@ -6,7 +6,8 @@ public enum RegexGroup {
   MINECRAFT_RECOVERY_COMPASS("^item\\.minecraft\\.recovery_compass$"),
   MODDED_NETHERITE_COMPASS("^item\\.netherite_compass\\.netherite_compass$"),
   MODDED_ORE_COMPASS("^item\\.miners-compass\\.ore_compass$"),
-  MODDED_DARK_COMPASS("^item\\.darkcompass\\.dark_compass$");
+  MODDED_DARK_COMPASS("^item\\.darkcompass\\.dark_compass$"),
+  MODDED_PORTAL_COMPASS("^item\\.portallinkingcompass\\.portal_linking_compass$");
 
   public final String regex;
 

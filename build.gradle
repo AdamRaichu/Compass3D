@@ -57,6 +57,7 @@ dependencies {
 	modApi "maven.modrinth:netherite-compass:yTjt8R7R"
 	modCompileOnly "maven.modrinth:miners-compass:SRH6VmrN"
 	modCompileOnly "maven.modrinth:dark-compass:hFXpncVr"
+	modApi "maven.modrinth:portal-linking-compass:mTlqWsNF"
 }
 
 processResources {

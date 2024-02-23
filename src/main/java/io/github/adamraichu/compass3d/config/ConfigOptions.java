@@ -92,6 +92,10 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public ArrowSettings darkCompass = ArrowSettings.MATCH_COMPASS_STYLE;
 
+    @ConfigEntry.Category("icon_style")
+    @ConfigEntry.Gui.Tooltip()
+    public ArrowSettings portalCompass = ArrowSettings.MATCH_COMPASS_STYLE;
+
     // Currently unused.
     public static enum ArrowSettings {
         DEFAULT,
