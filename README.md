@@ -31,6 +31,8 @@ Please let me know if you do (via a GitHub issue) so I can link them there.
 - `assets/compass3d/textures/item/recovery_up_arrow.png`
 - `assets/compass3d/textures/item/recovery_down_arrow.png`
 
+There are also other arrows for modded compasses. Check the directory on GitHub to see them all.
+
 ## What is the item `compass3d:*_arrow`?
 
 So to add the arrow overlays, I had to register a nonexistent item on the client side.
