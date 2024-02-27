@@ -11,6 +11,9 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public boolean disableMod = false;
 
+    @ConfigEntry.Gui.Tooltip()
+    public boolean renderFramedCompasses = true;
+
     /** x offset */
     @ConfigEntry.Category("icon_position")
     @ConfigEntry.Gui.Tooltip()
@@ -67,6 +70,26 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.BoundedDiscrete(min = 0, max = 16)
     public int stackedScale = 10;
+
+    @ConfigEntry.Category("icon_position")
+    @ConfigEntry.Gui.PrefixText()
+    @ConfigEntry.Gui.Tooltip()
+    @ConfigEntry.BoundedDiscrete(min = -10, max = 16)
+    public int framedTranslateX = 7;
+
+    @ConfigEntry.Category("icon_position")
+    @ConfigEntry.Gui.Tooltip()
+    @ConfigEntry.BoundedDiscrete(min = -6, max = 24)
+    public int framedTranslateY = 16;
+
+    @ConfigEntry.Category("icon_position")
+    @ConfigEntry.Gui.Tooltip()
+    @ConfigEntry.BoundedDiscrete(min = -10, max = 16)
+    public int framedTranslateZ = 6;
+
+    @ConfigEntry.Category("icon_position")
+    @ConfigEntry.Gui.Tooltip()
+    public float framedScale = 1;
 
     @ConfigEntry.Category("icon_style")
     @ConfigEntry.Gui.Tooltip()

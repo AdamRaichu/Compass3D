@@ -13,6 +13,7 @@ import io.github.adamraichu.compass3d.RegexGroup;
 import io.github.adamraichu.compass3d.Utils;
 import io.github.adamraichu.compass3d.config.ConfigOptions;
 import me.shedaniel.autoconfig.AutoConfig;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.item.ItemStack;
@@ -38,7 +39,9 @@ public abstract class DrawContextMixin {
     if (config.disableMod)
       return;
 
+    // TODO: Put this code in a class to reduce duplication.
     boolean isCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_COMPASS);
+    // TODO: Figure out how to render an enchantment glint on lodestone arrows.
     boolean isLodestoneCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
     boolean isRecoveryCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
     boolean isNetheriteCompass = Utils.isObject(stack, RegexGroup.MODDED_NETHERITE_COMPASS);
@@ -54,7 +57,8 @@ public abstract class DrawContextMixin {
     if (compound == null && isLodestoneCompass)
       return;
 
-    ItemStack displayItem = Utils.getDisplayItem(compound, stack, config);
+    MinecraftClient client = MinecraftClient.getInstance();
+    ItemStack displayItem = Utils.getDisplayItem(compound, stack, ((int) Math.round(client.player.getY())), config);
     if (displayItem == null)
       return;
 

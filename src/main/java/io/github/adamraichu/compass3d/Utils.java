@@ -34,7 +34,8 @@ public class Utils {
    * @param config   The current config options for compass3d
    * @return An ItemStack for the display item, or null if there is none available
    */
-  public static ItemStack getDisplayItem(NbtCompound compound, ItemStack stack, ConfigOptions config) {
+  public static ItemStack getDisplayItem(NbtCompound compound, ItemStack stack, int referencePos,
+      ConfigOptions config) {
     ItemStack displayItemStack;
     int compassY;
 
@@ -49,7 +50,6 @@ public class Utils {
     // Get player Y level
     MinecraftClient instance = MinecraftClient.getInstance();
     ClientPlayerEntity player = instance.player;
-    int playerY = ((int) Math.round(player.getY()));
 
     Identifier dimensionId = player.getWorld().getDimensionKey().getValue();
     String dimensionString = dimensionId.getNamespace() + ":" + dimensionId.getPath();
@@ -158,7 +158,7 @@ public class Utils {
     boolean usePortalArrows = config.portalCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isPortalCompass;
 
     // Compare player and compass Y levels
-    if (playerY < compassY) {
+    if (referencePos < compassY) {
       if (useRecoveryArrows) {
         displayItemStack = Compass3DMod.RECOVERY_UP_ARROW.getDefaultStack();
       } else if (useNetheriteArrows) {
@@ -172,7 +172,7 @@ public class Utils {
       } else {
         displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
       }
-    } else if (playerY > compassY) {
+    } else if (referencePos > compassY) {
       if (useRecoveryArrows) {
         displayItemStack = Compass3DMod.RECOVERY_DOWN_ARROW.getDefaultStack();
       } else if (useNetheriteArrows) {
