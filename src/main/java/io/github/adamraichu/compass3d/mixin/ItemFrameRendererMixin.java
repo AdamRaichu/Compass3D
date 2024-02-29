@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import io.github.adamraichu.compass3d.Compass3DMod;
 import io.github.adamraichu.compass3d.RegexGroup;
 import io.github.adamraichu.compass3d.Utils;
 import io.github.adamraichu.compass3d.config.ConfigOptions;
@@ -45,14 +46,14 @@ public abstract class ItemFrameRendererMixin {
 
     boolean isCompass = Utils.isObject(heldItem, RegexGroup.MINECRAFT_COMPASS);
     boolean isLodestoneCompass = Utils.isObject(heldItem, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
-    // boolean isRecoveryCompass = Utils.isObject(heldItem,
-    // RegexGroup.MINECRAFT_RECOVERY_COMPASS);
+    boolean isRecoveryCompass = Utils.isObject(heldItem, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
     boolean isNetheriteCompass = Utils.isObject(heldItem, RegexGroup.MODDED_NETHERITE_COMPASS);
     boolean isOreCompass = Utils.isObject(heldItem, RegexGroup.MODDED_ORE_COMPASS);
     boolean isDarkCompass = Utils.isObject(heldItem, RegexGroup.MODDED_DARK_COMPASS);
     boolean isPortalCompass = Utils.isObject(heldItem, RegexGroup.MODDED_PORTAL_COMPASS);
 
-    if (!(isLodestoneCompass || isCompass || /* isRecoveryCompass || Recovery compass does not work in Item Frames. */
+    // Only enable recovery compass if Framed Recovery Compass Fix is installed.
+    if (!(isLodestoneCompass || isCompass || (isRecoveryCompass && Compass3DMod.getShowFramedRecoveryArrows()) ||
         isNetheriteCompass || isOreCompass || isDarkCompass || isPortalCompass))
       return;
 

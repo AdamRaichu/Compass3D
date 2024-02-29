@@ -28,10 +28,17 @@
   ],
   "depends": {
     "fabricloader": ">=0.14.18",
-    "minecraft": ">=1.20.0",
+    "minecraft": [
+      "1.20",
+      "1.20.1",
+      "1.20.2",
+      "1.20.3",
+      "1.20.4"
+    ],
     "cloth-config": "*"
   },
   "recommends": {
-    "modmenu": "*"
+    "modmenu": "*",
+    "framed-recovery-compass-fix": "*"
   }
 }

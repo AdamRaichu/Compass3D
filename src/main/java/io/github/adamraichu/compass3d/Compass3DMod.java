@@ -14,6 +14,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.loader.api.FabricLoader;
 
 /**
  * Compass3D Mod
@@ -22,6 +23,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 public class Compass3DMod implements ClientModInitializer {
 	public static final String MOD_ID = "compass3d";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	private static boolean showFramedRecoveryArrows = false;
 
 	public static Item UP_ARROW = null;
 	public static Item DOWN_ARROW = null;
@@ -35,6 +38,10 @@ public class Compass3DMod implements ClientModInitializer {
 	public static Item MODDED_DARK_DOWN_ARROW = null;
 	public static Item MODDED_PORTAL_UP_ARROW = null;
 	public static Item MODDED_PORTAL_DOWN_ARROW = null;
+
+	public static boolean getShowFramedRecoveryArrows() {
+		return showFramedRecoveryArrows;
+	}
 
 	@Override
 	public void onInitializeClient() {
@@ -69,6 +76,11 @@ public class Compass3DMod implements ClientModInitializer {
 		registerItem("modded/portal_down_arrow", MODDED_PORTAL_DOWN_ARROW);
 
 		LOGGER.info("Custom items registered (for textures).");
+
+		if (FabricLoader.getInstance().isModLoaded("framed-recovery-compass-fix")) {
+			LOGGER.info("Framed Recovery Compass Fix is loaded. Enabling framed recovery compass arrows.");
+			showFramedRecoveryArrows = true;
+		}
 	}
 
 	private void registerItem(String name, Item item) {

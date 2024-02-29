@@ -1,8 +1,11 @@
 # Compass3D
 
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/compass3d?logo=modrinth)](https://modrinth.com/mod/compass3d)
+[![CurseForge Downloads](https://img.shields.io/curseforge/dt/971238?logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/compass3d)
+
 This mod renders an arrow over compasses in the inventory/hotbar. This arrow points up or down, showing you which direction (on the Y axis) you need to travel to reach the coordinate.
 
-As of `v2.0.0`, this also applies to compasses placed in Item Frames. These arrows have their own configs for placement.
+As of `v2.0.0`, this also applies to compasses placed in Item Frames. These arrows have their own configs for placement. This features works by default with all compasses except the Recovery Compass. You can install another mod [Framed Recovery Compass Fix](https://github.com/AdamRaichu/framed-recovery-compass-fix) to make it work.
 
 I had the idea for this mod when working on the tracking compass for my [Server Side Commands](https://modrinth.com/mod/server-side-commands) mod.
 I realized that you had no way to determine the Y value of the coordinates of a compass.
