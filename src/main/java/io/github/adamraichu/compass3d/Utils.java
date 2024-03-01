@@ -150,6 +150,8 @@ public class Utils {
       return null;
     }
 
+    boolean useLodestoneArrows = config.lodestoneCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE)
+        && isLodestoneCompass;
     boolean useRecoveryArrows = config.recoveryCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE) && isRecoveryCompass;
     boolean useNetheriteArrows = config.netheriteCompass.equals(ArrowSettings.MATCH_COMPASS_STYLE)
         && isNetheriteCompass;
@@ -159,7 +161,9 @@ public class Utils {
 
     // Compare player and compass Y levels
     if (referencePos < compassY) {
-      if (useRecoveryArrows) {
+      if (useLodestoneArrows) {
+        displayItemStack = Compass3DMod.LODESTONE_UP_ARROW.getDefaultStack();
+      } else if (useRecoveryArrows) {
         displayItemStack = Compass3DMod.RECOVERY_UP_ARROW.getDefaultStack();
       } else if (useNetheriteArrows) {
         displayItemStack = Compass3DMod.MODDED_NETHERITE_UP_ARROW.getDefaultStack();
@@ -173,7 +177,9 @@ public class Utils {
         displayItemStack = Compass3DMod.UP_ARROW.getDefaultStack();
       }
     } else if (referencePos > compassY) {
-      if (useRecoveryArrows) {
+      if (useLodestoneArrows) {
+        displayItemStack = Compass3DMod.LODESTONE_DOWN_ARROW.getDefaultStack();
+      } else if (useRecoveryArrows) {
         displayItemStack = Compass3DMod.RECOVERY_DOWN_ARROW.getDefaultStack();
       } else if (useNetheriteArrows) {
         displayItemStack = Compass3DMod.MODDED_NETHERITE_DOWN_ARROW.getDefaultStack();

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.github.adamraichu.compass3d.config.ConfigOptions;
+import io.github.adamraichu.compass3d.item.ItemWithGlint;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -28,6 +29,8 @@ public class Compass3DMod implements ClientModInitializer {
 
 	public static Item UP_ARROW = null;
 	public static Item DOWN_ARROW = null;
+	public static Item LODESTONE_UP_ARROW = null;
+	public static Item LODESTONE_DOWN_ARROW = null;
 	public static Item RECOVERY_UP_ARROW = null;
 	public static Item RECOVERY_DOWN_ARROW = null;
 	public static Item MODDED_NETHERITE_UP_ARROW = null;
@@ -51,6 +54,8 @@ public class Compass3DMod implements ClientModInitializer {
 		FabricItemSettings settings = new FabricItemSettings();
 		UP_ARROW = new Item(settings);
 		DOWN_ARROW = new Item(settings);
+		LODESTONE_UP_ARROW = new ItemWithGlint(settings);
+		LODESTONE_DOWN_ARROW = new ItemWithGlint(settings);
 		RECOVERY_UP_ARROW = new Item(settings);
 		RECOVERY_DOWN_ARROW = new Item(settings);
 		MODDED_NETHERITE_UP_ARROW = new Item(settings);
@@ -64,6 +69,8 @@ public class Compass3DMod implements ClientModInitializer {
 
 		registerItem("up_arrow", UP_ARROW);
 		registerItem("down_arrow", DOWN_ARROW);
+		registerItem("lodestone_up_arrow", LODESTONE_UP_ARROW);
+		registerItem("lodestone_down_arrow", LODESTONE_DOWN_ARROW);
 		registerItem("recovery_up_arrow", RECOVERY_UP_ARROW);
 		registerItem("recovery_down_arrow", RECOVERY_DOWN_ARROW);
 		registerItem("modded/netherite_up_arrow", MODDED_NETHERITE_UP_ARROW);

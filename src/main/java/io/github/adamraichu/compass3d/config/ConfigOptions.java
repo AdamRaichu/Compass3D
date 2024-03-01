@@ -98,7 +98,7 @@ public class ConfigOptions implements ConfigData {
 
     @ConfigEntry.Category("icon_style")
     @ConfigEntry.Gui.Tooltip()
-    public ArrowSettings lodestoneCompass = ArrowSettings.DEFAULT;
+    public ArrowSettings lodestoneCompass = ArrowSettings.MATCH_COMPASS_STYLE;
 
     @ConfigEntry.Category("icon_style")
     public ArrowSettings recoveryCompass = ArrowSettings.MATCH_COMPASS_STYLE;
