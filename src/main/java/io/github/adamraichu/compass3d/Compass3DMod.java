@@ -10,12 +10,11 @@ import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.loader.api.FabricLoader;
 
 /**
  * Compass3D Mod
@@ -51,7 +50,7 @@ public class Compass3DMod implements ClientModInitializer {
 		AutoConfig.register(ConfigOptions.class, GsonConfigSerializer::new);
 		LOGGER.info(LOGGER.getName() + " config initialized.");
 
-		FabricItemSettings settings = new FabricItemSettings();
+		Item.Settings settings = new Item.Settings();
 		UP_ARROW = new Item(settings);
 		DOWN_ARROW = new Item(settings);
 		LODESTONE_UP_ARROW = new ItemWithGlint(settings);
