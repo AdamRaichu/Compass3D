@@ -38,6 +38,7 @@
   "text.autoconfig.compass3d.option.lodestoneCompass.@Tooltip": "UPDATE - As of v2.2.0, using MATCH_COMPASS_STYLE will add the enchantment glint to the arrow.",
   "text.autoconfig.compass3d.option.lodestoneCompass": "Lodestone Compass",
   "text.autoconfig.compass3d.option.recoveryCompass": "Recovery Compass",
+  "text.autoconfig.compass3d.option.netheriteCompass.@PrefixText": "The following options have been disabled. I did this because their corresponding mods have not been updated to 1.20.5 yet.",
   "text.autoconfig.compass3d.option.netheriteCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
   "text.autoconfig.compass3d.option.netheriteCompass": "Netherite Compass",
   "text.autoconfig.compass3d.option.oreCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
@@ -45,5 +46,5 @@
   "text.autoconfig.compass3d.option.darkCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
   "text.autoconfig.compass3d.option.darkCompass": "Dark Compass",
   "text.autoconfig.compass3d.option.portalCompass.@Tooltip": "Added by another mod; has no effect if that mod is not present.",
-  "text.autoconfig.compass3d.portalCompass.darkCompass": "Portal Linking Compass"
+  "text.autoconfig.compass3d.option.portalCompass": "Portal Linking Compass"
 }

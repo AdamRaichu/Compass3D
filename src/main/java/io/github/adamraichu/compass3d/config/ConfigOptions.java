@@ -103,6 +103,9 @@ public class ConfigOptions implements ConfigData {
     @ConfigEntry.Category("icon_style")
     public ArrowSettings recoveryCompass = ArrowSettings.MATCH_COMPASS_STYLE;
 
+    // It looks weird, but it helps me.
+    @ConfigEntry.Gui.PrefixText()
+
     @ConfigEntry.Category("icon_style")
     @ConfigEntry.Gui.Tooltip()
     public ArrowSettings netheriteCompass = ArrowSettings.MATCH_COMPASS_STYLE;

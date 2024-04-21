@@ -20,7 +20,6 @@ import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.RotationAxis;
 
 @Mixin(ItemFrameEntityRenderer.class)
@@ -42,7 +41,6 @@ public abstract class ItemFrameRendererMixin {
     if (heldItem.isEmpty()) {
       return;
     }
-    NbtCompound nbt = heldItem.getNbt();
 
     boolean isCompass = Utils.isObject(heldItem, RegexGroup.MINECRAFT_COMPASS);
     boolean isLodestoneCompass = Utils.isObject(heldItem, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
@@ -57,7 +55,7 @@ public abstract class ItemFrameRendererMixin {
         isNetheriteCompass || isOreCompass || isDarkCompass || isPortalCompass))
       return;
 
-    ItemStack displayItem = Utils.getDisplayItem(nbt, heldItem, itemFrameEntity.getBlockY(), config);
+    ItemStack displayItem = Utils.getDisplayItem(heldItem, itemFrameEntity.getBlockY(), config);
     if (displayItem == null)
       return;
 

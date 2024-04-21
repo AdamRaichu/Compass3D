@@ -17,7 +17,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 
 @Mixin(DrawContext.class)
 public abstract class DrawContextMixin {
@@ -41,7 +40,6 @@ public abstract class DrawContextMixin {
 
     // TODO: Put this code in a class to reduce duplication.
     boolean isCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_COMPASS);
-    // TODO: Figure out how to render an enchantment glint on lodestone arrows.
     boolean isLodestoneCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_LODESTONE_COMPASS);
     boolean isRecoveryCompass = Utils.isObject(stack, RegexGroup.MINECRAFT_RECOVERY_COMPASS);
     boolean isNetheriteCompass = Utils.isObject(stack, RegexGroup.MODDED_NETHERITE_COMPASS);
@@ -53,12 +51,8 @@ public abstract class DrawContextMixin {
         isNetheriteCompass || isOreCompass || isDarkCompass || isPortalCompass))
       return;
 
-    NbtCompound compound = stack.getNbt();
-    if (compound == null && isLodestoneCompass)
-      return;
-
     MinecraftClient client = MinecraftClient.getInstance();
-    ItemStack displayItem = Utils.getDisplayItem(compound, stack, ((int) Math.round(client.player.getY())), config);
+    ItemStack displayItem = Utils.getDisplayItem(stack, ((int) Math.round(client.player.getY())), config);
     if (displayItem == null)
       return;
 
@@ -94,7 +88,7 @@ public abstract class DrawContextMixin {
   private void injectedScale(Args args) {
     if (adjustSize) {
       args.set(0, smallScale);
-      args.set(1, smallScale);
+      args.set(1, -smallScale);
       args.set(2, smallScale);
     }
   }

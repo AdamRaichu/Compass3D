@@ -13,6 +13,8 @@ So, I did some research, and found the mod [Simple Shulker Preview](https://gith
 
 This mod also supports several mods. See the [Mod Support List](https://github.com/AdamRaichu/Compass3D/issues/2) for a list of supported mods, or to suggest new mods to support.
 
+<!-- markdownlint-disable MD033 MD045 -->
+
 <img src="https://raw.githubusercontent.com/Jab125/Jab125/main/imgs/requiredClothConfig.png" width="300" height="100">
 
 ## Configs
