@@ -65,8 +65,6 @@ jobs:
           name: "[Fabric ${{env.minecraft_version}}] ${{env.mod_version}}"
           version: ${{ env.mod_version }}
           version-type: release
-          game-versions: |
-            1.20.5-snapshot
 
           loaders: fabric
           changelog: ${{ inputs.changes}}
